@@ -6,7 +6,7 @@ on:
     branches:
       - master
 
-    # Publish `v1.2.3` tags as releases.
+    # Publish `v1` tags as releases.
     tags:
       - 'v\d+'
 
