@@ -188,6 +188,7 @@ export enum Chain {
   EthereumSepolia = 'ETHEREUM_SEPOLIA',
   Optimism = 'OPTIMISM',
   Polygon = 'POLYGON',
+  Gnosis = 'GNOSIS',
   UnknownChain = 'UNKNOWN_CHAIN',
 }
 

@@ -11,6 +11,7 @@ import bnbSquareLogoUrl from 'assets/svg/bnb_square_logo.svg'
 import bnbLogo from 'assets/svg/bnb-logo.svg'
 import celoLogo from 'assets/svg/celo_logo.svg'
 import celoSquareLogoUrl from 'assets/svg/celo_square_logo.svg'
+import gnosisLogo from 'assets/svg/gnosis_logo.svg'
 import optimismSquareLogoUrl from 'assets/svg/optimism_square_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
 import polygonSquareLogoUrl from 'assets/svg/polygon_square_logo.svg'
@@ -19,7 +20,15 @@ import ms from 'ms'
 import { darkTheme } from 'theme/colors'
 
 import { SupportedL1ChainId, SupportedL2ChainId } from './chains'
-import { ARBITRUM_LIST, AVALANCHE_LIST, BASE_LIST, CELO_LIST, OPTIMISM_LIST, PLASMA_BNB_LIST } from './lists'
+import {
+  ARBITRUM_LIST,
+  AVALANCHE_LIST,
+  BASE_LIST,
+  CELO_LIST,
+  GNOSIS_LIST,
+  OPTIMISM_LIST,
+  PLASMA_BNB_LIST,
+} from './lists'
 
 export const AVERAGE_L1_BLOCK_TIME = ms(`12s`)
 
@@ -258,6 +267,21 @@ const CHAIN_INFO: ChainInfoMap = {
     squareLogoUrl: baseSquareLogo,
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_84531,
+  },
+  [ChainId.GNOSIS]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms(`10m`),
+    bridge: 'https://omnibridge.gnosischain.com/bridge',
+    defaultListUrl: GNOSIS_LIST,
+    docs: 'https://docs.gnosischain.com/',
+    explorer: 'https://gnosisscan.io/',
+    infoLink: 'https://info.uniswap.org/#/gnosis/',
+    label: 'Gnosis',
+    nativeCurrency: { name: 'Gnosis', symbol: 'xDAI', decimals: 18 },
+    color: darkTheme.chain_100,
+    backgroundColor: darkTheme.chain_100_background,
+    circleLogoUrl: gnosisLogo,
+    logoUrl: gnosisLogo,
   },
 } as const
 

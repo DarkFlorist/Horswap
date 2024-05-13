@@ -3,7 +3,7 @@ import { MixedRouteSDK } from '@uniswap/router-sdk'
 import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
 import { FeeAmount, Pool, Route as V3Route } from '@uniswap/v3-sdk'
-import { isAvalanche, isBsc, isMatic, nativeOnChain } from 'constants/tokens'
+import { isAvalanche, isBsc, isGnosis, isMatic, nativeOnChain } from 'constants/tokens'
 
 import { getApproveInfo } from './gas'
 import {
@@ -226,6 +226,7 @@ export function currencyAddressForSwapQuote(currency: Currency): string {
     if (isMatic(currency.chainId)) return SwapRouterNativeAssets.MATIC
     if (isBsc(currency.chainId)) return SwapRouterNativeAssets.BNB
     if (isAvalanche(currency.chainId)) return SwapRouterNativeAssets.AVAX
+    if (isGnosis(currency.chainId)) return SwapRouterNativeAssets.XDAI
     return SwapRouterNativeAssets.ETH
   }
 

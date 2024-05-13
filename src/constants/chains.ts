@@ -1,4 +1,7 @@
-import { ChainId, SUPPORTED_CHAINS, SupportedChainsType } from '@uniswap/sdk-core'
+import { ChainId, SUPPORTED_CHAINS as UNISWAP_SUPPORTED_CHAINS } from '@uniswap/sdk-core'
+
+export const SUPPORTED_CHAINS = [...UNISWAP_SUPPORTED_CHAINS, ChainId.GNOSIS] as const
+declare type SupportedChainsType = (typeof SUPPORTED_CHAINS)[number]
 
 export const CHAIN_IDS_TO_NAMES = {
   [ChainId.MAINNET]: 'mainnet',
@@ -15,6 +18,7 @@ export const CHAIN_IDS_TO_NAMES = {
   [ChainId.BNB]: 'bnb',
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.BASE]: 'base',
+  [ChainId.GNOSIS]: 'gnosis',
 } as const
 
 // Include ChainIds in this array if they are not supported by the UX yet, but are already in the SDK.
@@ -41,6 +45,7 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BASE,
+  ChainId.GNOSIS,
 ] as const
 
 /**
@@ -70,6 +75,7 @@ export const L1_CHAIN_IDS = [
   ChainId.CELO_ALFAJORES,
   ChainId.BNB,
   ChainId.AVALANCHE,
+  ChainId.GNOSIS,
 ] as const
 
 export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number]
@@ -117,7 +123,9 @@ export function getChainPriority(chainId: ChainId): number {
     case ChainId.CELO:
     case ChainId.CELO_ALFAJORES:
       return 7
-    default:
+    case ChainId.GNOSIS:
       return 8
+    default:
+      return 9
   }
 }

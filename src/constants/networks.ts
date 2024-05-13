@@ -105,6 +105,12 @@ export const FALLBACK_URLS = {
     'https://1rpc.io/base',
     'https://base.meowrpc.com',
   ],
+  [ChainId.GNOSIS]: [
+    // "Safe" URLs
+    'https://rpc.gnosischain.com',
+    'https://rpc.gnosis.gateway.fm',
+    'https://rpc.ankr.com/gnosis',
+  ],
 }
 
 /**
@@ -126,4 +132,5 @@ export const RPC_URLS = {
   [ChainId.BNB]: [...FALLBACK_URLS[ChainId.BNB]],
   [ChainId.AVALANCHE]: [...FALLBACK_URLS[ChainId.AVALANCHE]],
   [ChainId.BASE]: [...FALLBACK_URLS[ChainId.BASE]],
+  [ChainId.GNOSIS]: FALLBACK_URLS[ChainId.GNOSIS],
 }
